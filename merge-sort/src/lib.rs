@@ -41,23 +41,30 @@ mod tests {
     use rand::Rng;
 
     #[test]
-    fn t1_merge_sort() {
-        let sorted = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-        let mut arr = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
+    fn merge_sort_1() {
+        let mut arr: Vec<i32> = (0..1)
+            .map(|_| rand::thread_rng().gen_range(0..1_000_000))
+            .collect();
+        let mut sorted = arr.clone();
+        sorted.sort();
         merge_sort(&mut arr);
         assert_eq!(sorted, arr);
     }
     #[test]
-    fn t2_merge_sort() {
-        let sorted = [0, 11, 328, 499, 500, 501, 547, 654, 777, 1000];
-        let mut arr = [1000, 328, 777, 547, 654, 500, 501, 499, 0, 11];
+    fn merge_sort_10() {
+        let mut arr: Vec<i32> = (0..10)
+            .map(|_| rand::thread_rng().gen_range(0..1_000_000))
+            .collect();
+        let mut sorted = arr.clone();
+        sorted.sort();
         merge_sort(&mut arr);
         assert_eq!(sorted, arr);
     }
     #[test]
-    fn t3_merge_sort() {
-        let mut arr = vec![0_i32; 1_000_000];
-        rand::thread_rng().fill(&mut arr[..]);
+    fn merge_sort_1_000_000() {
+        let mut arr: Vec<i32> = (0..1_000_000)
+            .map(|_| rand::thread_rng().gen_range(0..1_000_000))
+            .collect();
         let mut sorted = arr.clone();
         sorted.sort();
         merge_sort(&mut arr);
@@ -65,18 +72,20 @@ mod tests {
     }
 
     #[test]
-    fn t4_merge_sort() {
-        let mut arr = vec![0_i32; 10_000_000];
-        rand::thread_rng().fill(&mut arr[..]);
+    fn merge_sort_10_000_000() {
+        let mut arr: Vec<i32> = (0..10_000_000)
+            .map(|_| rand::thread_rng().gen_range(0..1_000_000))
+            .collect();
         let mut sorted = arr.clone();
         sorted.sort();
         merge_sort(&mut arr);
         assert_eq!(sorted, arr);
     }
     #[test]
-    fn t5_merge_sort() {
-        let mut arr = vec![0_i32; 20_000_000];
-        rand::thread_rng().fill(&mut arr[..]);
+    fn merge_sort_20_000_000() {
+        let mut arr: Vec<i32> = (0..20_000_000)
+            .map(|_| rand::thread_rng().gen_range(0..1_000_000))
+            .collect();
         let mut sorted = arr.clone();
         sorted.sort();
         merge_sort(&mut arr);

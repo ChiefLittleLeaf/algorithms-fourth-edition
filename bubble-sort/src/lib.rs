@@ -32,8 +32,9 @@ mod tests {
 
     #[test]
     fn bubble_sort_10() {
-        let mut arr = vec![0_i32; 10];
-        rand::thread_rng().fill(&mut arr[..]);
+        let mut arr: Vec<i32> = (0..10)
+            .map(|_| rand::thread_rng().gen_range(0..1_000_000))
+            .collect();
         let mut sorted = arr.clone();
         sorted.sort();
         bubble_sort(&mut arr);
@@ -42,8 +43,9 @@ mod tests {
 
     #[test]
     fn bubble_sort_100() {
-        let mut arr = vec![0_i32; 100];
-        rand::thread_rng().fill(&mut arr[..]);
+        let mut arr: Vec<i32> = (0..100)
+            .map(|_| rand::thread_rng().gen_range(0..1_000_000))
+            .collect();
         let mut sorted = arr.clone();
         sorted.sort();
         bubble_sort(&mut arr);
@@ -52,8 +54,9 @@ mod tests {
 
     #[test]
     fn bubble_sort_1_000() {
-        let mut arr = vec![0_i32; 1_000];
-        rand::thread_rng().fill(&mut arr[..]);
+        let mut arr: Vec<i32> = (0..1_000)
+            .map(|_| rand::thread_rng().gen_range(0..1_000_000))
+            .collect();
         let mut sorted = arr.clone();
         sorted.sort();
         bubble_sort(&mut arr);
@@ -62,7 +65,7 @@ mod tests {
     #[test]
     fn bubble_sort_10_000() {
         let mut arr: Vec<i32> = (0..10_000)
-            .map(|_| rand::thread_rng().gen_range(0..10_000))
+            .map(|_| rand::thread_rng().gen_range(0..1_000_000))
             .collect();
         let mut sorted = arr.clone();
         sorted.sort();
